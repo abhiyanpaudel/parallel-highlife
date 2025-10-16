@@ -18,7 +18,7 @@ LDCUDA    = -L$(CUDA_LIB) -lcudart -lcudadevrt -lstdc++
 all: cuda mpi hybrid
 
 # --- CUDA  ---
-cuda: highlife
+cuda: highlife_cuda
 highlife: highlife_cuda.cu
 	$(NVCC) $(NVFLAGS) -o $@ $^
 
@@ -37,4 +37,4 @@ highlife_exe: highlife_mpi.o highlife_cuda.o
 	$(MPICC) $(CFLAGS) $^ -o $@ $(LDCUDA)
 
 clean:
-	rm -f highlife highlife_mpi highlife_exe *.o
+	rm -f highlife_cuda highlife_mpi highlife_exe *.o
