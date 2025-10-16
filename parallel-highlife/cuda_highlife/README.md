@@ -10,8 +10,9 @@ Parallel implementation of HighLife using **CUDA** with 1-D arrays.
 
 **Program arguments:**
 The executable accepts four arguments:
+```bash
 ./highlife <pattern> <world_size> <iterations> <block_size>
-
+```
 where:
 -   `<pattern>` - initial world program (0 -5 as  defined in the assignment)
 -   `<world_size>` - dimension `N` of the N x N world
@@ -23,7 +24,7 @@ where:
 ```bash
 nvcc -O3 -gencode arch=compute_XY,code=sm_XY highlife.cu -o highlife
 ```
->[!Note] 
+>[!IMPORTANT] 
 >Replace `XY` with your GPU's **compute capability** 
 
 **Run example:**
@@ -34,4 +35,7 @@ nvcc -O3 -gencode arch=compute_XY,code=sm_XY highlife.cu -o highlife
 - Fastest block size: **128**
 - Peak: **8.65×10¹⁰ cell updates/s**
 - ≈900× faster than serial
+
+> [!NOTE]
+> For detailed performance plots and timing data, see [cuda_report.pdf](cuda_report.pdf).
 
